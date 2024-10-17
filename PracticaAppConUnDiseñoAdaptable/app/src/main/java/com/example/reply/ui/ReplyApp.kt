@@ -31,9 +31,9 @@ fun ReplyApp(
     modifier: Modifier = Modifier,
 ) {
     val navigationType: ReplyNavigationType
+    val contentType: ReplyContentType
     val viewModel: ReplyViewModel = viewModel()
     val replyUiState = viewModel.uiState.collectAsState().value
-    val contentType: ReplyContentType
 
     when (windowSize) {
         WindowWidthSizeClass.Compact -> {
@@ -53,7 +53,6 @@ fun ReplyApp(
             contentType = ReplyContentType.LIST_ONLY
         }
     }
-
     ReplyHomeScreen(
         navigationType = navigationType,
         contentType = contentType,
@@ -73,4 +72,3 @@ fun ReplyApp(
         modifier = modifier
     )
 }
-
